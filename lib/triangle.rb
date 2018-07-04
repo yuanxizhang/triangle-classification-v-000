@@ -8,14 +8,9 @@ class Triangle
   end
   
   def kind 
-    @a, @b, @c = [@a, @b, @c].sort
-    if (@a + @b <= @c) || (@a <= 0) || (@b <= 0) || (@c <= 0) 
-      begin 
-        raise TriangleError 
-      rescue TriangleError => error 
-        puts error.message
-      end
-    end 
+    array = [a, b, c].sort
+    raise TriangleError if array.min <= 0 || array[0]+array[1] <= array[2]
+     
     case [a,b,c].uniq.size
       when 3; :scalene
       when 2; :isosceles
