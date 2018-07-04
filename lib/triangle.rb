@@ -9,6 +9,7 @@ class Triangle
   
   def kind 
     array = [a, b, c].sort
+    
     raise TriangleError if array.min <= 0 || array[0]+array[1] <= array[2]
      
     case [a,b,c].uniq.size
